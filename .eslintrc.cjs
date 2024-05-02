@@ -1,0 +1,41 @@
+module.exports = {
+  env: { browser: true, es2021: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:import/typescript',
+    'plugin:prettier/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  plugins: ['react', 'react-refresh', 'react-hooks', '@typescript-eslint', 'eslint-plugin-import-helpers'],
+  rules: {
+    camelcase: 'error',
+    'no-debugger': 'warn',
+    'no-console': 'warn',
+    'react-refresh/only-export-components': 'warn',
+    'no-use-before-define': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [['/^react/', 'module'], ['/^@mantine/', '/^@tabler/'], ['/^@//'], ['parent', 'sibling', 'index']],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
+  },
+  settings: {
+    react: { version: 'detect' },
+  },
+}
